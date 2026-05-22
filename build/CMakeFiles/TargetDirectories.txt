@@ -1,3 +1,0 @@
-D:/CODE/C++/Proj/ScoreManagement/build/CMakeFiles/app.dir
-D:/CODE/C++/Proj/ScoreManagement/build/CMakeFiles/edit_cache.dir
-D:/CODE/C++/Proj/ScoreManagement/build/CMakeFiles/rebuild_cache.dir
