@@ -40,6 +40,7 @@ public:
   const Score &getScore() const { return stu_scores; }
   const std::string &getName() const { return this->name; }
   const std::string &getStuId() const { return this->stu_id; }
+  bool getGender() const { return gender_is_male; }
 
   void showInfo() const;
 };

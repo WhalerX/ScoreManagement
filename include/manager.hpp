@@ -32,6 +32,7 @@ public:
   void sortStuByScore(sortDirection t);
   void showStuInfoList() const;
   int showStuNum() const { return pStuInfoList->size(); }
+  const std::vector<Student *> &getStuList() const { return *pStuInfoList; }
 
   static std::function<bool(const std::string &id,
                             const std::vector<Student *> *pStuInfoList)>

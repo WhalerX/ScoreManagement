@@ -1,6 +1,7 @@
 #include "ui.hpp"
 #include "manager.hpp"
 #include "student.hpp"
+#include "OpenXLSX.hpp"
 #include <algorithm>
 #include <cctype>
 #include <cstdio>
@@ -33,7 +34,8 @@ Ui::Ui() {
   opMap[4] = std::bind(&Ui::FindStudent, this);
   opMap[5] = std::bind(&Ui::ShowListOfStudents, this);
   opMap[6] = std::bind(&Ui::SortStudent, this);
-  opMap[7] = std::bind(&Ui::Exit, this);
+  opMap[7] = std::bind(&Ui::SaveToExcel, this);
+  opMap[8] = std::bind(&Ui::Exit, this);
 }
 
 Ui::~Ui() { Manager::ScoreManager::releaseInstance(); }
@@ -45,7 +47,7 @@ void Ui::showMenu() const {
   std::cout << "(1) Add Student                  (2) Delete Student       \n";
   std::cout << "(3) Modify Student               (4) Find Student         \n";
   std::cout << "(5) Show List of Students        (6) Sort Student         \n";
-  std::cout << "(7) Exit                                                  \n";
+  std::cout << "(7) Save to Excel                (8) Exit                 \n";
   std::cout << "==========================================================\n";
 }
 
@@ -325,16 +327,56 @@ void Ui::SortStudent() {
   std::cout << "============= " << "Sort Complete" << " =============\n";
 }
 
+void Ui::SaveToExcel() {
+  if (pScoreManager->showStuNum() == 0) {
+    std::cout << "No student data to save.\n";
+    return;
+  }
+
+  std::string filename =
+      getUsersKey<std::string>("Enter filename (without extension): ");
+  filename += ".xlsx";
+
+  OpenXLSX::XLDocument doc;
+  doc.create(filename, OpenXLSX::XLForceOverwrite);
+  auto wks = doc.workbook().worksheet("Sheet1");
+
+  // 表头
+  wks.cell(1, 1).value() = "学号";
+  wks.cell(1, 2).value() = "姓名";
+  wks.cell(1, 3).value() = "性别";
+  wks.cell(1, 4).value() = "语文";
+  wks.cell(1, 5).value() = "数学";
+  wks.cell(1, 6).value() = "英语";
+  wks.cell(1, 7).value() = "总分";
+
+  // 数据行
+  int row = 2;
+  for (auto pStu : pScoreManager->getStuList()) {
+    wks.cell(row, 1).value() = pStu->getStuId();
+    wks.cell(row, 2).value() = pStu->getName();
+    wks.cell(row, 3).value() = pStu->getGender() ? "男" : "女";
+    wks.cell(row, 4).value() = pStu->getScore().chinese;
+    wks.cell(row, 5).value() = pStu->getScore().math;
+    wks.cell(row, 6).value() = pStu->getScore().english;
+    wks.cell(row, 7).value() = pStu->getScore().total();
+    row++;
+  }
+
+  doc.save();
+  doc.close();
+  std::cout << "Saved " << (row - 2) << " student(s) to " << filename << "\n";
+}
+
 void Ui::Exit() {
-  std::cout << pScoreManager->showStuNum() << " student(s) exist.\n";
-  std::cout << "Don't forget to save.\n";
+  std::cout << pScoreManager->showStuNum() << " student(s) in system.\n";
   std::cout << "Looking forward to your next use. Bye!\n";
   isExit = true;
 }
 
 void Ui::Scheduling() {
   auto isChoiceValid = [](int &k) {
-    for (int n = 1; n <= 7; n++) {
+    for (int n = 1; n <= 8; n++) {
       if (n == k)
         return true;
     }

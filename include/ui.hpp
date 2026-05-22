@@ -21,6 +21,7 @@ private:
   void FindStudent();
   void ShowListOfStudents();
   void SortStudent();
+  void SaveToExcel();
   void Exit();
 
 public:
