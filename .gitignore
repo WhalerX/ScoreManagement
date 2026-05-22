@@ -3,6 +3,7 @@ bin/
 *.exe
 *.obj
 *.o
+*.tmp
 
 # 允许第三方预编译库
 !third_party/**/*.a
