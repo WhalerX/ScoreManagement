@@ -1,0 +1,26 @@
+[
+{
+  "directory": "D:/CODE/C++/Proj/ScoreManagement/build",
+  "command": "D:\\MinGW\\bin\\g++.exe -DOPENXLSX_STATIC_DEFINE @CMakeFiles/app.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\app.dir\\src\\main.cpp.obj -c D:\\CODE\\C++\\Proj\\ScoreManagement\\src\\main.cpp",
+  "file": "D:/CODE/C++/Proj/ScoreManagement/src/main.cpp",
+  "output": "CMakeFiles/app.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/CODE/C++/Proj/ScoreManagement/build",
+  "command": "D:\\MinGW\\bin\\g++.exe -DOPENXLSX_STATIC_DEFINE @CMakeFiles/app.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\app.dir\\src\\manager.cpp.obj -c D:\\CODE\\C++\\Proj\\ScoreManagement\\src\\manager.cpp",
+  "file": "D:/CODE/C++/Proj/ScoreManagement/src/manager.cpp",
+  "output": "CMakeFiles/app.dir/src/manager.cpp.obj"
+},
+{
+  "directory": "D:/CODE/C++/Proj/ScoreManagement/build",
+  "command": "D:\\MinGW\\bin\\g++.exe -DOPENXLSX_STATIC_DEFINE @CMakeFiles/app.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\app.dir\\src\\student.cpp.obj -c D:\\CODE\\C++\\Proj\\ScoreManagement\\src\\student.cpp",
+  "file": "D:/CODE/C++/Proj/ScoreManagement/src/student.cpp",
+  "output": "CMakeFiles/app.dir/src/student.cpp.obj"
+},
+{
+  "directory": "D:/CODE/C++/Proj/ScoreManagement/build",
+  "command": "D:\\MinGW\\bin\\g++.exe -DOPENXLSX_STATIC_DEFINE @CMakeFiles/app.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\app.dir\\src\\ui.cpp.obj -c D:\\CODE\\C++\\Proj\\ScoreManagement\\src\\ui.cpp",
+  "file": "D:/CODE/C++/Proj/ScoreManagement/src/ui.cpp",
+  "output": "CMakeFiles/app.dir/src/ui.cpp.obj"
+}
+]
