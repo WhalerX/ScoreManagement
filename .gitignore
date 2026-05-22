@@ -1,0 +1,12 @@
+build/
+bin/
+*.exe
+*.obj
+*.o
+
+# 允许第三方预编译库
+!third_party/**/*.a
+
+# 本地 IDE 配置
+.clangd
+.claude/

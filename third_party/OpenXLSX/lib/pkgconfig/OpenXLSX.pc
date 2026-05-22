@@ -1,0 +1,13 @@
+prefix=D:/CODE/CPP_Lib/OpenXLSX/build/install
+exec_prefix=${prefix}
+includedir=${prefix}/include/OpenXLSX
+libdir=${exec_prefix}/lib
+
+Name: OpenXLSX
+Description: A C++17 library for reading, writing and modifying Excel spreadsheets
+URL: 
+Version: 0.5.0
+Cflags: -I"${includedir}"
+Requires.private: pugixml-OpenXLSX >= 1.15 miniz-OpenXLSX
+Libs: -L${libdir} -Wl,-rpath,${libdir} -lOpenXLSX
+Libs.private: 
